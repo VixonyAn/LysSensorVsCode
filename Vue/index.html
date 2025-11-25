@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Vue Template</title>
+    <!-- Import Styles -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/styles.css" />
+    <!-- Import Vue.js -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <div class="nav-bar"></div>
+      <h1>{{ intro }}</h1>
+    
+      <img class="image" v-bind:src="image.src" v-bind:alt="image.desc">
+        
+      <br>
+
+      <!-- Add Pet To List -->
+      <button class="button" @click=AddPet>Add Pet</button>
+      <!-- Dynamic Change pet name/species -->
+      <input type="text" v-model="petname" placeholder="Pet Name">
+      <input type="text" v-model="species" placeholder="Species">
+      <!--Show/Hide list button-->
+      <button class="button" id="btnShow" v-if="!show" @click=Show>Show List</button>
+      <button class="button" id="btnShow" v-if="show" @click=Show>Hide List</button>
+      
+      <br><br>
+
+      <!-- Display List -->
+      <div v-show="show" id="list">
+        <ul>
+            <li v-for="pet in petlist">{{ pet.petname }} {{ pet.species }}</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Import App -->
+    <script src="./js/main.js"></script>
+
+    <!-- Mount App -->
+    <script>
+      const mountedApp = app.mount('#app')
+    </script>
+  </body>
+</html>

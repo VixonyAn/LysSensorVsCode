@@ -1,0 +1,17 @@
+h1{
+    font-size: 50px;
+    text-align: center;
+}
+.image{
+    width: screen;
+    display: block;
+    margin: auto;
+}
+body{
+    margin-left: 12%;
+    margin-right: 12%;
+    background: #E6FBFF;
+}
+li{
+    list-style-type: circle;
+}
