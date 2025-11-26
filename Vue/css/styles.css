@@ -2,11 +2,6 @@ h1{
     font-size: 50px;
     text-align: center;
 }
-.image{
-    width: screen;
-    display: block;
-    margin: auto;
-}
 body{
     margin-left: 12%;
     margin-right: 12%;
@@ -14,4 +9,67 @@ body{
 }
 li{
     list-style-type: circle;
+}
+
+/* Header */
+.HeaderNavBar {
+    display: inline-flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+.navbar img {
+    max-width: 3rem;
+}
+.navbar {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+}
+.nav-links {
+    position: fixed;
+
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 3.2rem;
+    background-color: lightblue;
+    padding: 1rem;
+
+    z-index: 1000; /* Higher than other elements */
+}
+.nav-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 1.5rem;
+}
+.sunscrean {
+    margin-left: 10rem;
+}
+
+
+
+
+/* Main body */
+main {
+    padding: 3rem 0 3rem 0;
+}
+.mainBtns {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 2rem;
+}
+.mainBtns, button {
+    background-color: transparent;
+    border: none;
+}
+.mainBtns button img {
+    border: 2px solid black;
+    min-width: 7rem;
+}
+
+
+/* Footer */
+footer {
+    text-align: center;
 }

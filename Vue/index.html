@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Vue Template</title>
+    <title>Lys og Liv</title>
     <!-- Import Styles -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/styles.css" />
@@ -10,32 +10,54 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
-    <div id="app">
-      <div class="nav-bar"></div>
-      <h1>{{ intro }}</h1>
-    
-      <img class="image" v-bind:src="image.src" v-bind:alt="image.desc">
+    <div id="app"></section>
+      <header>
+        <div class="HeaderNavBar">
+
+          <nav class="navbar">
+            <button @click="toggleMenu"><img src="./img/80x80.svg" alt="BurgerMenu"></button>
+            <div class="nav-links"v-if="menuOpen" >
+              <a href="#">Lys og Liv</a>
+              <a href="#">Data</a>
+              <a href="#">Om os</a>
+            </div>
+          </nav>
+
+          <img src="https://placehold.co/150x40" alt="Lys og Liv Logo">
+
+          <p>UV: {{ uvIndex }}</p>
+
+        </div>
         
-      <br>
+          <p class="sunscrean">{{ suncream }}</p>
 
-      <!-- Add Pet To List -->
-      <button class="button" @click=AddPet>Add Pet</button>
-      <!-- Dynamic Change pet name/species -->
-      <input type="text" v-model="petname" placeholder="Pet Name">
-      <input type="text" v-model="species" placeholder="Species">
-      <!--Show/Hide list button-->
-      <button class="button" id="btnShow" v-if="!show" @click=Show>Show List</button>
-      <button class="button" id="btnShow" v-if="show" @click=Show>Hide List</button>
-      
-      <br><br>
+      </header>
+   
+      <main >
+        <section class="mainBtns">
+          <button><img class="image" v-bind:src="sunBtn.src" v-bind:alt="sunBtn.desc"></button>
+          <button><img class="image" v-bind:src="moonBtn.src" v-bind:alt="moonBtn.desc"></button>
+          <button><img class="image" v-bind:src="lightSwitch.src" v-bind:alt="lightSwitch.desc"></button>
+          <button><img class="image" v-bind:src="nightSwitch.src" v-bind:alt="nightSwitch.desc"></button>
+          <button><img class="image" v-bind:src="blindsOpen.src" v-bind:alt="blindsOpen.desc"></button>
+          <button><img class="image" v-bind:src="blindsClose.src" v-bind:alt="blindsClose.desc"></button>
+        </section>
+        
+        
+      </main>
 
-      <!-- Display List -->
-      <div v-show="show" id="list">
-        <ul>
-            <li v-for="pet in petlist">{{ pet.petname }} {{ pet.species }}</li>
-        </ul>
-      </div>
-    </div>
+
+
+      <footer>
+        <article>
+          <p>You have in all saved {{ savedEnergy }} hours of energy.</p>
+        </article>
+      </footer>
+
+
+
+
+     </div>
 
     <!-- Import App -->
     <script src="./js/main.js"></script>
