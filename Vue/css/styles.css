@@ -1,13 +1,7 @@
-h1{
-    font-size: 50px;
-    text-align: center;
-}
+
 body{
     background: #F6C292;
     text-align: center;
-}
-li{
-    list-style-type: circle;
 }
 p{
     font-size: 3rem;
@@ -75,7 +69,7 @@ header p {
     color: black;
     font-size: 3rem;
 }
-.sunscrean {
+.sunscreen {
     margin-left: 20rem;
     margin-right: 2rem;
 }
@@ -83,8 +77,8 @@ header p {
 
 
 
-/* Main body */
-main {
+/* Main for Index.html */
+.IndexMain {
     padding: 12rem 0 5rem 0rem;
     padding-left: 15%;
 }
@@ -101,6 +95,47 @@ main {
     border: 2px solid #FFB572;
     min-width: 20rem;
 }
+
+
+
+/* Main for Data.html */
+.Data {
+    min-width: 75rem;
+    margin-left: 1%;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 50% 50%;
+    padding-top: 5rem;
+}
+.Data p{
+    font-size: 3.5rem;
+    border: #ab550a 2px solid;
+}
+.DataNames{
+    display: flex;
+    background-color: #FFD4AF;
+    padding: 0.5rem;
+}
+.DataData {
+    display: flex;
+    background-color: #FFDFC2;
+}
+
+.FilterBtn {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    font-size: 3rem;
+    background-color: #FFA451;
+    border: #ab550a 2px solid;
+    border-radius: 1rem;
+    margin-right: 1rem;
+}
+.DataMain button, .DataMain input::placeholder {
+    color: #874003;
+}
+
+
 
 
 /* Footer */

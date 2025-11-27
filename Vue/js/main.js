@@ -44,6 +44,15 @@ const app = Vue.createApp({
             },
             savedEnergy: 5,
 
+            city: 'Copenhagen',
+            // data: [
+            //     {date: '27/11/2025', time: '13:30', lightIntensity: 0},
+            //     {date: '30/11/2025', time: '14:00', lightIntensity: 120},
+            // ],
+            date: '27/11/2025',
+            time: '13:30',
+            lightIntensity: 0.5,
+
         }
     },
     methods: {

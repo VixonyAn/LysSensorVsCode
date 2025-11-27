@@ -29,12 +29,31 @@
 
         </div>
         
-          <p class="sunscrean">{{ suncream }}</p>
+          <p class="sunscreen">{{ sunscreen }}</p>
 
       </header>
    
-      <main >
-        
+      <main class="DataMain">
+        <div>
+          <p>By: {{ city }}</p>
+          <button></button>
+        </div>
+
+        <article class="DataControls">
+          <button class="FilterBtn">Filter</button>
+          <button class="FilterBtn">Sorter</button>
+          <input class="FilterBtn" type="search" name="search" id="search" placeholder="Search... ">
+        </article>
+
+        <section class="Data">
+            <p class="DataNames">Date</p>
+            <p class="DataNames">Time</p>
+            <p class="DataNames">Light Intensity</p>
+
+            <p class="DataData">{{ date }}</p>
+            <p class="DataData">{{ time }}</p>
+            <p class="DataData">{{ lightIntensity }}</p>
+        </section>
       </main>
 
 
