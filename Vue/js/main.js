@@ -17,7 +17,7 @@ const app = Vue.createApp({
 
             menuOpen: false,
             uvIndex: 0,
-            suncream: 'No suncream needed',
+            sunscreen: 'No sunscreen needed',
             sunBtn: {
                 src: './img/SunBtn.png',
                 desc: 'Sun Button',
