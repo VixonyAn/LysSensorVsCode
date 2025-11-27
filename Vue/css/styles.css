@@ -23,7 +23,7 @@ button:active{
 header {
     padding-top: 1.5rem;
     padding-bottom: 1rem;
-    width: 100%;
+    width: 120%;
     background-color: #FFB572;
 }
 header p {
@@ -41,12 +41,12 @@ header p {
     padding-right: 5rem;
 }
 .logoImg {
-    min-height: 6rem;
+    min-height: 2rem;
     padding-left: 2rem;
-    padding-right: 7rem;
+    padding-right: 4rem;
 }
 .navbar img {
-    min-height: 9rem;
+    min-height: 10rem;
 }
 .navbar {
     display: flex;
@@ -85,7 +85,8 @@ header p {
 
 /* Main body */
 main {
-    padding: 3rem 0 5rem 0;
+    padding: 12rem 0 5rem 0rem;
+    padding-left: 15%;
 }
 .mainBtns {
     display: grid;
@@ -98,11 +99,17 @@ main {
 }
 .mainBtns button img {
     border: 2px solid #FFB572;
-    min-width: 17rem;
+    min-width: 20rem;
 }
 
 
 /* Footer */
 footer {
     text-align: center;
+    padding-left: 15%;
+}
+footer p {
+    font-size: 3rem;
+    padding: 2rem;
+    font-weight: bold;
 }
