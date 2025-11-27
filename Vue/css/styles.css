@@ -3,28 +3,54 @@ h1{
     text-align: center;
 }
 body{
-    margin-left: 12%;
-    margin-right: 12%;
-    background: #E6FBFF;
+    background: #F6C292;
+    text-align: center;
 }
 li{
     list-style-type: circle;
 }
+p{
+    font-size: 3rem;
+    line-height: 1.6;
+}
+button:active{
+    outline: none;
+    border: none;
+    box-shadow: none;
+}
 
 /* Header */
+header {
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    width: 100%;
+    background-color: #FFB572;
+}
+header p {
+    background-color: #FFA451;
+    color: #ab550a;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin-left: 1rem;
+}
 .HeaderNavBar {
     display: inline-flex;
     justify-content: space-between;
     align-items: center;
     gap: 1rem;
+    padding-right: 5rem;
+}
+.logoImg {
+    min-height: 6rem;
+    padding-left: 2rem;
+    padding-right: 7rem;
 }
 .navbar img {
-    max-width: 3rem;
+    min-height: 9rem;
 }
 .navbar {
     display: flex;
     flex-direction: column;
-    align-items: self-start;
 }
 .nav-links {
     position: fixed;
@@ -32,19 +58,26 @@ li{
     display: flex;
     flex-direction: column;
     gap: 2rem;
-    margin-top: 3.2rem;
-    background-color: lightblue;
+    margin-top: 10rem;
+    background-color: #FFA451;
+    margin-left: 5rem;
     padding: 1rem;
+    width: 15rem;
+    
 
     z-index: 1000; /* Higher than other elements */
+}
+.nav-links a:hover {
+    background-color: #F18423;
 }
 .nav-links a {
     text-decoration: none;
     color: black;
-    font-size: 1.5rem;
+    font-size: 3rem;
 }
 .sunscrean {
-    margin-left: 10rem;
+    margin-left: 20rem;
+    margin-right: 2rem;
 }
 
 
@@ -52,7 +85,7 @@ li{
 
 /* Main body */
 main {
-    padding: 3rem 0 3rem 0;
+    padding: 3rem 0 5rem 0;
 }
 .mainBtns {
     display: grid;
@@ -64,8 +97,8 @@ main {
     border: none;
 }
 .mainBtns button img {
-    border: 2px solid black;
-    min-width: 7rem;
+    border: 2px solid #FFB572;
+    min-width: 17rem;
 }
 
 

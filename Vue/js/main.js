@@ -19,27 +19,27 @@ const app = Vue.createApp({
             uvIndex: 0,
             suncream: 'No suncream needed',
             sunBtn: {
-                src: './img/80x80.svg',
+                src: './img/SunBtn.png',
                 desc: 'Sun Button',
             },
             moonBtn: {
-                src: './img/80x80.svg',
+                src: './img/MoonBtn.png',
                 desc: 'Moon Button',
             },
             lightSwitch: {
-                src: './img/80x80.svg',
+                src: './img/LightOnBtn.png',
                 desc: 'Light Switch',
             },
             nightSwitch: {
-                src: './img/80x80.svg',
+                src: './img/LightOffBtn.png',
                 desc: 'Night Switch',   
             },
             blindsOpen: {
-                src: './img/80x80.svg',
+                src: './img/CurtainOpen.png',
                 desc: 'Blinds Open',
             },
             blindsClose: {
-                src: './img/80x80.svg',
+                src: './img/CurtainClosed.png',
                 desc: 'Blinds Close',
             },
             savedEnergy: 5,
