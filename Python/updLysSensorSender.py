@@ -10,6 +10,9 @@ PORT = 32000
 socket_sender = socket(AF_INET, SOCK_DGRAM)
 socket_sender.setsockopt(SOL_SOCKET, SO_BROADCAST, 1)
 
+# Link to lux value ranges
+# https://www.engineeringtoolbox.com/light-level-rooms-d_708.html
+
 def determineLightLevel(hour):
     if hour >= datetime(hour=0) and hour < datetime(hour=4):
         return random.uniform(0.0001, 0.0011)
