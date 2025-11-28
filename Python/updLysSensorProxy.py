@@ -18,8 +18,8 @@ while True:
     msg_str = msg.decode()
     print(f"UDP Broadcaster {addr} sent the following message: {msg_str}")
     msg_obj = json.loads(msg_str)
-    curr_time = time.time()
-    msg_obj["Date"] = curr_time
+    new_time = time.time()
+    msg_obj["TimeTurnedOn"] = new_time
         
     response = requests.post(REST_API_URL, json=msg_obj)
     print(f"Response from REST API: {response.status_code} -- {response.text}")
