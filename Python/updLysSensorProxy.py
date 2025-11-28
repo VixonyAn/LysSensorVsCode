@@ -2,8 +2,6 @@ from socket import *
 import requests
 import json
 import time
-import datetime
-import lightLevel
 
 PORT = 32000
 
@@ -22,7 +20,6 @@ while True:
     msg_obj = json.loads(msg_str)
     curr_time = time.time()
     msg_obj["Date"] = curr_time
-    msg_obj["LightLevel"] = lightLevel.determineLightLevel(datetime(curr_time))
         
     response = requests.post(REST_API_URL, json=msg_obj)
     print(f"Response from REST API: {response.status_code} -- {response.text}")

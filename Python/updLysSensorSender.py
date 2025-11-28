@@ -1,8 +1,8 @@
 from socket import *
 from datetime import datetime
 import time
-import random
 import json
+import lightLevel
 
 BROADCAST_IP = '255.255.255.255'
 PORT = 32000
@@ -12,12 +12,11 @@ socket_sender.setsockopt(SOL_SOCKET, SO_BROADCAST, 1)
 
 
 def generateDatapoint():
-    date = datetime.now()
     light_dict = {
         "Date": "",
         "IsDrawn": False,
         "LightsOn": False,
-        "LightLevel": ""
+        "LightLevel": lightLevel.determineLightLevel(datetime(time.time().hour))
     }
     return light_dict
 
