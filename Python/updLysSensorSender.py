@@ -13,7 +13,7 @@ socket_sender.setsockopt(SOL_SOCKET, SO_BROADCAST, 1)
 
 def generateDatapoint():
     light_dict = {
-        "Date": "",
+        "Date": None,
         "IsDrawn": False,
         "LightsOn": False,
         "LightLevel": lightLevel.determineLightLevel(datetime(time.time().hour))
