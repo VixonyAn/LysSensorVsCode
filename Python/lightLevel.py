@@ -12,7 +12,7 @@ def determineLightLevel(hour):
     elif hour >= datetime(hour=5) and hour < datetime(hour=6):
         return random.uniform(1.08, 10.8)
     elif hour >= datetime(hour=6) and hour < datetime(hour=7):
-        return random.random(107, 1075)
+        return random.randint(107, 1075)
     elif hour >= datetime(hour=7) and hour < datetime(hour=8):
         return random.randint(1075, 10752)
     elif hour >= datetime(hour=8) and hour < datetime(hour=10):
