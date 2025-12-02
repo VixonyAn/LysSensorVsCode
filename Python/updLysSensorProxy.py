@@ -11,7 +11,8 @@ socket_reciever.bind(('', PORT))
 print("Proxy UDP ready")
 print(f"Listening for incoming messages on PORT {PORT}")
 
-REST_API_URL = "http://localhost:####/api/"
+REST_API_URL = "http://localhost:####/api/" ## Include localhost number
+## REST_API_URL = "http://" ## Include Azure host url here
 
 while True:
     msg, addr = socket_reciever.recvfrom(3000)
