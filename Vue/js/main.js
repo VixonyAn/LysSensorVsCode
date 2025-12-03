@@ -16,8 +16,7 @@ const app = Vue.createApp({
             },
 
             menuOpen: false,
-            uvIndex: 0,
-            sunscreen: 'No sunscreen needed',
+            sunscreen: '',
             sunBtn: {
                 src: './img/SunBtn.png',
                 desc: 'Sun Button',
@@ -53,24 +52,54 @@ const app = Vue.createApp({
             time: '13:30',
             lightIntensity: 0.5,
 
+            uvResult: [],
+
+
         }
     },
+    created(){
+        this.getData();
+    },
     methods: {
-        myMethod(){
-
-        },
-        AddPet(){
-            this.petlist.push({petname: this.petname, species: this.species})
-            this.petname = ' '
-            this.species = ' '
-        },
         Show(){
             this.show = !this.show;
         },
 
         toggleMenu(){
             this.menuOpen = !this.menuOpen;
-        }
+        },
+        needSunscreen() {
+            if (this.uvResult.uv >= 3) {
+                this.sunscreen = 'Sunscreen needed!';
+            } 
+            else {
+                this.sunscreen = 'No sunscreen needed';
+            }
+        },
+        async getData() {
+            try {
+                // For testing only: put your real key here or (better) fetch it from your server
+                const API_KEY = 'openuv-2oqfkrmipsgvri-io';
+
+                // OpenUV expects either x-access-token or Authorization: Bearer <key>
+                // Using x-access-token header:
+                const headers = { 'x-access-token': API_KEY };
+
+                // replace these with dynamic values if you want
+                const lat = 55.63085267988983;   // Copenhagen latitude example
+                const lng = 12.078241812295092;   // Copenhagen longitude example
+
+                const url = `https://api.openuv.io/api/v1/uv?lat=${lat}&lng=${lng}`;
+
+                const response = await axios.get(url, { headers });
+                this.uvResult = response.data.result;
+                console.log(response.data);
+                this.needSunscreen();
+            } catch (error) {
+                console.error(error);
+            }
+        },
+
     },
     computed: {
         myComputed() {
@@ -79,3 +108,4 @@ const app = Vue.createApp({
         
     }
 })
+app.mount('#app')

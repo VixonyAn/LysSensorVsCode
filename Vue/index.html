@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
-    <div id="app"></section>
+    <div id="app">
       <header>
         <div class="HeaderNavBar">
 
@@ -24,13 +24,10 @@
           </nav>
 
           <img class="logoImg"src="./img/Logo.png" alt="Lys og Liv Logo">
-
-          <p>UV: {{ uvIndex }}</p>
-
+          <p>UV: {{ uvResult.uv }}</p>
         </div>
         
           <p class="sunscreen">{{ sunscreen }}</p>
-
       </header>
    
       <main class="IndexMain">
@@ -59,12 +56,12 @@
 
      </div>
 
-    <!-- Import App -->
-    <script src="./js/main.js"></script>
 
-    <!-- Mount App -->
-    <script>
-      const mountedApp = app.mount('#app')
-    </script>
+
+      <!-- Axios (global) -->
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <!-- Import App (uses global Vue and axios) -->
+      <script src="./js/main.js"></script>
+
   </body>
 </html>
