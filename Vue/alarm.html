@@ -29,26 +29,26 @@
         
           <p class="sunscreen">{{ sunscreen }}</p>
       </header>
+
+
    
-      <main class="IndexMain">
-        <section class="mainBtns">
-          <button><img class="image" v-bind:src="sunBtn.src" v-bind:alt="sunBtn.desc"></button>
-          <button><img class="image" v-bind:src="moonBtn.src" v-bind:alt="moonBtn.desc"></button>
-          <button><img class="image" v-bind:src="lightSwitch.src" v-bind:alt="lightSwitch.desc"></button>
-          <button><img class="image" v-bind:src="nightSwitch.src" v-bind:alt="nightSwitch.desc"></button>
-          <button><img class="image" v-bind:src="blindsOpen.src" v-bind:alt="blindsOpen.desc"></button>
-          <button><img class="image" v-bind:src="blindsClose.src" v-bind:alt="blindsClose.desc"></button>
-        </section>
-        
+      <main class="IndexMain AlarmMain">
+        <label>Hours (0–23):</label>
+        <input type="number" v-model.number="inputHours"><br><br>
+
+        <label>Minutes (0–59):</label>
+        <input type="number" v-model.number="inputMinutes"><br><br>
+
+        <button @click="timer">{{ timerId ? 'Stop' : 'Start Timer' }}</button>
+
+        <p>{{ display }}</p>
         
       </main>
 
 
 
       <footer>
-        <article>
-          <p>You have in all saved {{ savedEnergy }} hours of energy.</p>
-        </article>
+
       </footer>
 
 
