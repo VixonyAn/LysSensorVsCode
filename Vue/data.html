@@ -10,7 +10,7 @@
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
   <body>
-    <div id="app"></section>
+    <div id="app">
       <header>
         <div class="HeaderNavBar">
 
@@ -19,7 +19,7 @@
             <div class="nav-links"v-if="menuOpen" >
               <a href="/Vue/index.html">Lys og Liv</a>
               <a href="/Vue/data.html">Data</a>
-              <a href="#">Om os</a>
+              <a href="/Vue/alarm.html">Alarm</a>
             </div>
           </nav>
 
@@ -66,13 +66,9 @@
 
 
      </div>
-
-    <!-- Import App -->
-    <script src="./js/main.js"></script>
-
-    <!-- Mount App -->
-    <script>
-      const mountedApp = app.mount('#app')
-    </script>
+      <!-- Axios (global) -->
+      <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+      <!-- Import App (uses global Vue and axios) -->
+      <script src="./js/main.js"></script>
   </body>
 </html>

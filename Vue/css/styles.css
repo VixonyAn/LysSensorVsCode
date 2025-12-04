@@ -148,3 +148,37 @@ footer p {
     padding: 2rem;
     font-weight: bold;
 }
+
+
+
+
+/* Alarm.html */
+
+.AlarmMain {
+    font-size: 5rem;
+    background-color: #FFA451;
+    margin: 5rem;
+    margin-right: -15%;
+    color: #874003;
+}
+.AlarmMain button {
+    font-size: 6rem;
+    background-color: #F18423;
+    border: none;
+    padding: 2rem;
+    text-align: center;
+    margin-left: -10%;
+    color: #FFDFC2;
+}
+.AlarmMain input {
+    font-size: 5rem;
+    text-align: center;
+    width: 10rem;
+    margin-left: 5rem;
+    background-color: #FFDFC2;
+    color: #F18423;
+    border: none;
+}
+.AlarmMain p {
+    color: #874003;
+}

@@ -1,19 +1,11 @@
 const app = Vue.createApp({
     data() {
         return {
-            intro: 'Welcome to my Vue template',
-            show: true,
-            petname: "Pet Name",
-            species: "Species",
-            petlist: [
-                {petname: 'Kiki', species: 'Cat'},
-                {petname: 'Molly', species: 'Cat'},
-                {petname: 'Rover', species: 'Dog'},
-                {petname: 'Polly', species: 'Bird'},],
-            image: {
-                src: './img/catBanner.jpg',
-                desc: 'two rows of cat drawings',
-            },
+            inputHours: 0,
+            inputMinutes: 0,
+            display: "",
+            totalSeconds: 0,
+            timerId: null,
 
             menuOpen: false,
             sunscreen: '',
@@ -43,7 +35,7 @@ const app = Vue.createApp({
             },
             savedEnergy: 5,
 
-            city: 'Copenhagen',
+            city: 'Roskilde',
             // data: [
             //     {date: '27/11/2025', time: '13:30', lightIntensity: 0},
             //     {date: '30/11/2025', time: '14:00', lightIntensity: 120},
@@ -99,7 +91,58 @@ const app = Vue.createApp({
                 console.error(error);
             }
         },
+         timer() {
+                        // Stop timer if it's running
+            if (this.timerId) {
+                clearInterval(this.timerId);
+                this.timerId = null;
+                this.timerRunning = false;
+                this.display = "00:00:00";
+                this.totalSeconds = 0;
+                return;
+            }
 
+            // Get values from data, NOT the DOM
+            let h = this.inputHours;
+            let m = this.inputMinutes;
+
+            // Convert to seconds
+            this.totalSeconds = h * 3600 + m * 60;
+
+            if (this.totalSeconds <= 0) {
+                alert("Please enter a valid duration.");
+                return;
+            }
+
+            // Initial display
+            this.updateDisplay();
+            this.timerRunning = true;
+
+            // Start countdown
+            this.timerId = setInterval(() => {
+                this.totalSeconds--;
+
+                this.updateDisplay();
+
+                if (this.totalSeconds <= 0) {
+                    clearInterval(this.timerId);
+                    this.timerId = null;
+                    this.timerRunning = false;
+                    alert("Time's up! The light level is: HIGH/LOW");
+                }
+            }, 1000);
+        },
+
+        updateDisplay() {
+            let h = Math.floor(this.totalSeconds / 3600);
+            let m = Math.floor((this.totalSeconds % 3600) / 60);
+            let s = this.totalSeconds % 60;
+
+            this.display =
+                String(h).padStart(2, "0") + ":" +
+                String(m).padStart(2, "0") + ":" +
+                String(s).padStart(2, "0");
+        }
     },
     computed: {
         myComputed() {
