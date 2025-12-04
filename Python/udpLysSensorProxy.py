@@ -2,6 +2,11 @@ from socket import *
 import requests
 import json
 import time
+import urllib3
+
+# In development the ASP.NET Core dev certificate is self-signed.
+# Disable warnings and skip verification for local HTTPS calls.
+urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 PORT = 32000
 
@@ -11,7 +16,7 @@ socket_reciever.bind(('', PORT))
 print("Proxy UDP ready")
 print(f"Listening for incoming messages on PORT {PORT}")
 
-REST_API_URL = "http://localhost:7169/api/LightSensor" ## Include localhost number
+REST_API_URL = "https://localhost:7169/api/LightSensor" ## Include localhost number
 ## REST_API_URL = "http://" ## Include Azure host url here
 
 while True:
@@ -20,6 +25,8 @@ while True:
     print(f"UDP Broadcaster {addr} sent the following message: {msg_str}")
     msg_obj = json.loads(msg_str)
     msg_obj["TimeTurnedOn"] = int(time.time())
-    print(msg_obj)
-    response = requests.post(REST_API_URL, json=msg_obj)
-    print(f"Response from REST API: {response.status_code} -- {response.text}")
+    try:
+        response = requests.post(REST_API_URL, json=msg_obj, verify=False, timeout=5)
+        print(f"Response from REST API: {response.status_code} -- {response.text}")
+    except requests.exceptions.RequestException as error:
+        print(f"Error occured when posting to REST API: {error}")
