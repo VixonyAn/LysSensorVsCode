@@ -93,9 +93,19 @@ const app = Vue.createApp({
                 console.error(error);
             }
         },
-        getDataFromDatabase() {
-            
-        },
+    getDataFromDatabase() {
+        try {
+        const url = 'https://lightmeasurement-d3hfh3aqfucmf7f4.swedencentral-01.azurewebsites.net/api/LightSensor';
+        
+        const response = axios.get(url);
+               
+                console.log(response.data);
+                this.needSunscreen();
+            } 
+            catch (error) {
+                console.error(error);
+            }
+    },
          timer() {
                         // Stop timer if it's running
             if (this.timerId) {
