@@ -35,6 +35,12 @@ const app = Vue.createApp({
             },
             savedEnergy: 5,
 
+            sensorData: [],
+            // date:[] ,
+            // lightIntensity: [],
+            // curtainDrawn: [],
+            // lightsOn: [],
+
             city: 'Roskilde',
             // data: [
             //     {date: '27/11/2025', time: '13:30', lightIntensity: 0},
@@ -42,9 +48,6 @@ const app = Vue.createApp({
             // ],
 
             //PUT DATABASE DATA IN HERE
-            date: '27/11/2025',
-            time: '13:30',
-            lightIntensity: 0.5,
 
             uvResult: [],
 
@@ -53,6 +56,7 @@ const app = Vue.createApp({
     },
     created(){
         this.getData();
+        this.getDataFromDatabase();
     },
     methods: {
         Show(){
@@ -93,18 +97,23 @@ const app = Vue.createApp({
                 console.error(error);
             }
         },
-    getDataFromDatabase() {
+    async getDataFromDatabase() {
         try {
         const url = 'https://lightmeasurement-d3hfh3aqfucmf7f4.swedencentral-01.azurewebsites.net/api/LightSensor';
         
-        const response = axios.get(url);
-               
-                console.log(response.data);
-                this.needSunscreen();
-            } 
-            catch (error) {
-                console.error(error);
-            }
+         
+             
+        const response = await axios.get(url);
+                 this.sensorData = response.data;
+                console.log(response.data); 
+        //console.log("Database result:", response.data);
+
+        // Store *all* rows in sensorData
+
+        } 
+        catch (error) {
+            console.error(error);
+        }
     },
          timer() {
                         // Stop timer if it's running
