@@ -52,10 +52,10 @@
         <p class="DataNames">Lights on?</p>
 
         <template v-for="entry in sensorData">
-        <p class="DataData">{{ sensorData.TimeTurnedOn }}</p>
-        <p class="DataData">{{ sensorData.lightIntensity }}</p>
-        <p class="DataData">{{ sensorData.IsDrawn }}</p>
-        <p class="DataData">{{ sensorData.lightsOn }}</p>
+        <p class="DataData">{{ entry.TimeTurnedOn }}</p>
+        <p class="DataData">{{ entry.lightIntensity }}</p>
+        <p class="DataData">{{ entry.IsDrawn }}</p>
+        <p class="DataData">{{ entry.lightsOn }}</p>
         </template>
 
 </section>
