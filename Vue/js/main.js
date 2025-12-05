@@ -40,6 +40,8 @@ const app = Vue.createApp({
             //     {date: '27/11/2025', time: '13:30', lightIntensity: 0},
             //     {date: '30/11/2025', time: '14:00', lightIntensity: 120},
             // ],
+
+            //PUT DATABASE DATA IN HERE
             date: '27/11/2025',
             time: '13:30',
             lightIntensity: 0.5,
@@ -91,6 +93,9 @@ const app = Vue.createApp({
                 console.error(error);
             }
         },
+        getDataFromDatabase() {
+            
+        },
          timer() {
                         // Stop timer if it's running
             if (this.timerId) {
@@ -128,6 +133,7 @@ const app = Vue.createApp({
                     clearInterval(this.timerId);
                     this.timerId = null;
                     this.timerRunning = false;
+                    // INSERT LIGHT LEVEL LOGIC HERE FROM DATABASE 
                     alert("Time's up! The light level is: HIGH/LOW");
                 }
             }, 1000);
