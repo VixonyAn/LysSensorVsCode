@@ -116,6 +116,8 @@ header p {
     display: flex;
     background-color: #FFD4AF;
     padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
 }
 .DataData {
     display: flex;
