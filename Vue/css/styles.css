@@ -106,6 +106,7 @@ header p {
     grid-template-rows: 20rem auto;
     padding-top: 5rem;
     justify-content: center;
+    text-align: center;
 }
 .Data p{
     font-size: 3.5rem;
