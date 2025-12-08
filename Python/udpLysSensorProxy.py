@@ -16,8 +16,8 @@ socket_reciever.bind(('', PORT))
 print("Proxy UDP ready")
 print(f"Listening for incoming messages on PORT {PORT}")
 
-REST_API_URL = "https://localhost:7169/api/LightSensor" ## Include localhost number
-## REST_API_URL = "http://" ## Include Azure host url here
+## REST_API_URL = "https://localhost:7169/api/LightSensor" ## localhost url
+REST_API_URL = "https://lightmeasurement-d3hfh3aqfucmf7f4.swedencentral-01.azurewebsites.net/api/LightSensor" ## Deployed on Azure
 
 while True:
     msg, addr = socket_reciever.recvfrom(3000)
