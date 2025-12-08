@@ -120,6 +120,8 @@ header p {
 .DataData {
     display: flex;
     background-color: #FFDFC2;
+    justify-content: center;
+    align-items: center;
 }
 
 .FilterBtn {
