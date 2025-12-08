@@ -9,6 +9,11 @@ except Exception:
 class Stepper:
     """Controller for a 4-wire ULN2003 stepper (28BYJ-48 style).
 
+    To call it through command line, run:
+        python dcMotorStepper.py --degrees 90 --direction cw
+        
+        direction is either 'cw' (clockwise) or 'ccw' (counter-clockwise)
+        
     Example:
         s = Stepper([17,18,27,22])
         s.rotate_degrees(90, clockwise=True)
@@ -105,19 +110,3 @@ def _parse_args():
     return p.parse_args()
 
 
-if __name__ == '__main__':
-    args = _parse_args()
-    try:
-        stepper = Stepper(args.pins, step_sleep=args.speed, steps_per_rev=args.steps_per_rev)
-        clockwise = True if args.direction == 'cw' else False
-        print(f"Rotating {args.degrees}° {'clockwise' if clockwise else 'counter-clockwise'} at speed={args.speed}")
-        stepper.rotate_degrees(args.degrees, clockwise=clockwise)
-    except KeyboardInterrupt:
-        print("Interrupted by user")
-    except Exception as e:
-        print(f"Error: {e}")
-    finally:
-        try:
-            stepper.cleanup()
-        except Exception:
-            pass
