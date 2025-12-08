@@ -24,7 +24,6 @@ while True:
     msg_str = msg.decode()
     print(f"UDP Broadcaster {addr} sent the following message: {msg_str}")
     msg_obj = json.loads(msg_str)
-    msg_obj["TimeTurnedOn"] = int(time.time())
     try:
         response = requests.post(REST_API_URL, json=msg_obj, verify=False, timeout=5)
         print(f"Response from REST API: {response.status_code} -- {response.text}")
