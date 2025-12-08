@@ -35,14 +35,19 @@ const app = Vue.createApp({
             },
             savedEnergy: 5,
 
+            sensorData: [],
+            // date:[] ,
+            // lightIntensity: [],
+            // curtainDrawn: [],
+            // lightsOn: [],
+
             city: 'Roskilde',
             // data: [
             //     {date: '27/11/2025', time: '13:30', lightIntensity: 0},
             //     {date: '30/11/2025', time: '14:00', lightIntensity: 120},
             // ],
-            date: '27/11/2025',
-            time: '13:30',
-            lightIntensity: 0.5,
+
+            //PUT DATABASE DATA IN HERE
 
             uvResult: [],
 
@@ -51,6 +56,7 @@ const app = Vue.createApp({
     },
     created(){
         this.getData();
+        this.getDataFromDatabase();
     },
     methods: {
         Show(){
@@ -91,6 +97,28 @@ const app = Vue.createApp({
                 console.error(error);
             }
         },
+        async getDataFromDatabase() {
+            try {
+            const url = 'https://lightmeasurement-d3hfh3aqfucmf7f4.swedencentral-01.azurewebsites.net/api/LightSensor';
+            
+            
+                
+            const response = await axios.get(url);
+                    this.sensorData = response.data;
+                    console.log(response.data); 
+            //console.log("Database result:", response.data);
+
+            // Store *all* rows in sensorData
+
+            } 
+            catch (error) {
+                console.error(error);
+            }
+        },
+        UnixToDate(unixTime) {
+            const date = new Date(unixTime * 1000);
+            return date.toLocaleDateString('da-DK') + ' ' + date.toLocaleTimeString('da-DK');
+        },
          timer() {
                         // Stop timer if it's running
             if (this.timerId) {
@@ -128,6 +156,7 @@ const app = Vue.createApp({
                     clearInterval(this.timerId);
                     this.timerId = null;
                     this.timerRunning = false;
+                    // INSERT LIGHT LEVEL LOGIC HERE FROM DATABASE 
                     alert("Time's up! The light level is: HIGH/LOW");
                 }
             }, 1000);

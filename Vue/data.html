@@ -25,7 +25,7 @@
 
           <img class="logoImg"src="./img/Logo.png" alt="Lys og Liv Logo">
 
-          <p>UV: {{ uvIndex }}</p>
+          <p>UV: {{ uvResult.uv }}</p>
 
         </div>
         
@@ -45,14 +45,21 @@
         </article>
 
         <section class="Data">
-            <p class="DataNames">Date</p>
-            <p class="DataNames">Time</p>
-            <p class="DataNames">Light Intensity</p>
 
-            <p class="DataData">{{ date }}</p>
-            <p class="DataData">{{ time }}</p>
-            <p class="DataData">{{ lightIntensity }}</p>
+          <p class="DataNames">Date</p>
+          <p class="DataNames">Light Intensity</p>
+          <p class="DataNames">Curtain drawn?</p>
+          <p class="DataNames">Lights on?</p>
+
+          <template class="DataInput" v-for="entry in sensorData">
+            <p class="DataData">{{ UnixToDate(entry.timeTurnedOn) }}</p>
+            <p class="DataData">{{ entry.lightLevel }}</p>
+            <p class="DataData">{{ entry.isDrawn }}</p>
+            <p class="DataData">{{ entry.lightsOn }}</p>
+          </template>
+
         </section>
+
       </main>
 
 

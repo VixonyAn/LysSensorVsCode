@@ -101,11 +101,12 @@ header p {
 /* Main for Data.html */
 .Data {
     min-width: 75rem;
-    margin-left: 1%;
     display: grid;
-    grid-template-columns: 33% 33% 33%;
-    grid-template-rows: 50% 50%;
+    grid-template-columns: 24% 24% 24% 24%;
+    grid-template-rows: 20rem auto;
     padding-top: 5rem;
+    justify-content: center;
+    text-align: center;
 }
 .Data p{
     font-size: 3.5rem;
@@ -115,10 +116,14 @@ header p {
     display: flex;
     background-color: #FFD4AF;
     padding: 0.5rem;
+    justify-content: center;
+    align-items: center;
 }
 .DataData {
     display: flex;
     background-color: #FFDFC2;
+    justify-content: center;
+    align-items: center;
 }
 
 .FilterBtn {
