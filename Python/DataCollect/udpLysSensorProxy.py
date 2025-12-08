@@ -1,7 +1,6 @@
 from socket import *
 import requests
 import json
-import time
 import urllib3
 
 # In development the ASP.NET Core dev certificate is self-signed.
@@ -16,8 +15,8 @@ socket_reciever.bind(('', PORT))
 print("Proxy UDP ready")
 print(f"Listening for incoming messages on PORT {PORT}")
 
-## REST_API_URL = "https://localhost:7169/api/LightSensor" ## localhost url
-REST_API_URL = "https://lightmeasurement-d3hfh3aqfucmf7f4.swedencentral-01.azurewebsites.net/api/LightSensor" ## Deployed on Azure
+## REST_API_URL = "https://localhost:7169/api/PiData" ## localhost url
+REST_API_URL = "https://lysoglivdatarest.azurewebsites.net/api/PiData" ## Deployed on Azure
 
 while True:
     msg, addr = socket_reciever.recvfrom(3000)

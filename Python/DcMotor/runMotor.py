@@ -1,7 +1,5 @@
 import dcMotorStepper as dcStepper
 
-
-
 if __name__ == '__main__':
     args = dcStepper._parse_args()
     try:
