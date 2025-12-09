@@ -99,7 +99,7 @@ const app = Vue.createApp({
         },
         async getDataFromDatabase() {
             try {
-            const url = 'https://lightmeasurement-d3hfh3aqfucmf7f4.swedencentral-01.azurewebsites.net/api/LightSensor';
+            const url = 'https://lysoglivdatarest.azurewebsites.net/swagger/index.htmlhttps://lysoglivdatarest.azurewebsites.net/api/LightSensor';
             
             
                 
