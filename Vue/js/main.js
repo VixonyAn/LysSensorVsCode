@@ -100,7 +100,7 @@ const app = Vue.createApp({
         async getDataFromDatabase() {
             try {
             const url = 'https://lysoglivdatarest.azurewebsites.net/api/LightSensor';
-            
+
             const response = await axios.get(url);
                     this.sensorData = response.data;
                     console.log(response.data); 

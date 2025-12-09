@@ -13,10 +13,7 @@ socket_sender.setsockopt(SOL_SOCKET, SO_BROADCAST, 1)
 
 def generateDatapoint():
     light_dict = {
-        "TimeTurnedOn": None,
-        "IsDrawn": False,
-        "LightsOn": False,
-        "LightLevel": lightLevel.determineLightLevel(datetime.fromtimestamp(time.time()).hour)
+        "LightValue": lightLevel.determineLightLevel(datetime.fromtimestamp(time.time()).hour)
     }
     return light_dict
 
@@ -25,6 +22,6 @@ for _ in range(100):
     message = json.dumps(light_dict)
     print(f'Broadcaster sending: {message}')
     socket_sender.sendto(message.encode(), (BROADCAST_IP, PORT))
-    time.sleep(2)
+    time.sleep(600)
     
 socket_sender.close()
