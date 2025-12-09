@@ -99,17 +99,11 @@ const app = Vue.createApp({
         },
         async getDataFromDatabase() {
             try {
-            const url = 'https://lightmeasurement-d3hfh3aqfucmf7f4.swedencentral-01.azurewebsites.net/api/LightSensor';
+            const url = 'https://lysoglivdatarest.azurewebsites.net/api/LightSensor';
             
-            
-                
             const response = await axios.get(url);
                     this.sensorData = response.data;
                     console.log(response.data); 
-            //console.log("Database result:", response.data);
-
-            // Store *all* rows in sensorData
-
             } 
             catch (error) {
                 console.error(error);
@@ -161,7 +155,6 @@ const app = Vue.createApp({
                 }
             }, 1000);
         },
-
         updateDisplay() {
             let h = Math.floor(this.totalSeconds / 3600);
             let m = Math.floor((this.totalSeconds % 3600) / 60);
@@ -171,7 +164,40 @@ const app = Vue.createApp({
                 String(h).padStart(2, "0") + ":" +
                 String(m).padStart(2, "0") + ":" +
                 String(s).padStart(2, "0");
-        }
+        },
+        async sunBtnClick() {
+             // When the sun btn is clicked, activate the pi motor to open the blinds
+            console.log("Sun button clicked - Open blinds");
+
+            try {
+                const url = 'https://lysoglivdatarest.azurewebsites.net/api/LightSensor';
+
+                // Build payload the API expects. Adjust fields to match your REST service.
+                const payload = {
+                    action: "openBlinds",    // example — change to the required payload
+                    timestamp: Math.floor(Date.now() / 1000)
+                };
+
+                // Optional headers
+                const config = {
+                    headers: { 'Content-Type': 'application/json' }
+                };
+
+                // Send POST and wait for response
+                const response = await axios.post(url, payload, config);
+
+                // Handle response (adjust according to API shape)
+                console.log('POST response:', response.data);
+                // Optionally update local state from response
+                // this.sensorData.push(response.data);
+
+                // Provide user feedback
+                alert('Request sent successfully.');
+            } catch (error) {
+                console.error('POST error:', error);
+                alert('Failed to send request. See console for details.');
+            }
+        },
     },
     computed: {
         myComputed() {

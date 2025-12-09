@@ -32,7 +32,7 @@
    
       <main class="IndexMain">
         <section class="mainBtns">
-          <button><img class="image" v-bind:src="sunBtn.src" v-bind:alt="sunBtn.desc"></button>
+          <button @click="sunBtnClick"><img class="image" v-bind:src="sunBtn.src" v-bind:alt="sunBtn.desc"></button>
           <button><img class="image" v-bind:src="moonBtn.src" v-bind:alt="moonBtn.desc"></button>
           <button><img class="image" v-bind:src="lightSwitch.src" v-bind:alt="lightSwitch.desc"></button>
           <button><img class="image" v-bind:src="nightSwitch.src" v-bind:alt="nightSwitch.desc"></button>
