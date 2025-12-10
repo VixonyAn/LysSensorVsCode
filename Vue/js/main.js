@@ -50,7 +50,7 @@ const app = Vue.createApp({
             //PUT DATABASE DATA IN HERE
 
             uvResult: [],
-
+            TextMessage: '',
 
         }
     },
@@ -166,7 +166,7 @@ const app = Vue.createApp({
                 String(s).padStart(2, "0");
         },
         async sunBtnClick() {
-             // When the sun btn is clicked, activate the pi motor to open the blinds
+                         // When the sun btn is clicked, activate the pi motor to open the blinds
             console.log("Sun button clicked - Open blinds");
 
             try {
@@ -183,19 +183,21 @@ const app = Vue.createApp({
                     headers: { 'Content-Type': 'application/json' }
                 };
 
+                // show status on page
+                this.TextMessage = 'Sending request...';
+
                 // Send POST and wait for response
                 const response = await axios.post(url, payload, config);
 
                 // Handle response (adjust according to API shape)
                 console.log('POST response:', response.data);
-                // Optionally update local state from response
-                // this.sensorData.push(response.data);
 
-                // Provide user feedback
-                TextMessage('Request sent successfully.');
+                // show success on page instead of alert
+                this.TextMessage = 'Request sent successfully.';
             } catch (error) {
                 console.error('POST error:', error);
-                TextMessage('Failed to send request. See console for details.');
+                // show error on page instead of alert
+                this.TextMessage = 'Failed to send request. See console for details.';
             }
         },
     },
