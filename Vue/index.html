@@ -31,6 +31,18 @@
       </header>
    
       <main class="IndexMain">
+        <article>
+          <button class="helpBtn" id="helpBtn" @click="toggleHelp"><img src="./img/que.png" alt="QuestionMark"></button>
+          <div class="helpPanel" id="helpPanel" v-if="helpOpen">
+            <p><span class="iconName">Sun:</span> Checks light levels outside and opens the curtains or turns on the light depending on how bright it is outside</p>
+            <p><span class="iconName">Moon:</span> Turns off the lights and closes the curtains for bed time</p>
+            <p><span class="iconName">Light On:</span> Turns on the lights</p>
+            <p><span class="iconName">Light Off:</span> Turns off the lights</p>
+            <p><span class="iconName">Curtains Open:</span> Opens the curtains</p>
+            <p><span class="iconName">Curtains Closed:</span> Closes the curtains</p>
+          </div>
+        </article>
+        
         <section class="mainBtns">
           <button id="btnSun" @click="sunBtnClick"><img class="image" v-bind:src="sunBtn.src" v-bind:alt="sunBtn.desc"></button>
           <button><img class="image" v-bind:src="moonBtn.src" v-bind:alt="moonBtn.desc"></button>
@@ -47,7 +59,8 @@
 
       <footer>
         <article>
-          <p>You have in all saved {{ savedEnergy }} hours of energy.</p>
+          <p >{{ TextMessage }}</p>
+          <p>You have saved {{ savedEnergy }} hours of energy in total.</p>
         </article>
       </footer>
 
