@@ -192,10 +192,10 @@ const app = Vue.createApp({
                 // this.sensorData.push(response.data);
 
                 // Provide user feedback
-                alert('Request sent successfully.');
+                TextMessage('Request sent successfully.');
             } catch (error) {
                 console.error('POST error:', error);
-                alert('Failed to send request. See console for details.');
+                TextMessage('Failed to send request. See console for details.');
             }
         },
     },
