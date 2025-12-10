@@ -8,6 +8,7 @@ const app = Vue.createApp({
             timerId: null,
 
             menuOpen: false,
+            helpOpen: false,
             sunscreen: '',
             sunBtn: {
                 src: './img/SunBtn.png',
@@ -65,6 +66,9 @@ const app = Vue.createApp({
 
         toggleMenu(){
             this.menuOpen = !this.menuOpen;
+        },
+        toggleHelp(){
+            this.helpOpen = !this.helpOpen;
         },
         needSunscreen() {
             if (this.uvResult.uv >= 3) {
