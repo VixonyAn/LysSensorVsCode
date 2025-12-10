@@ -99,7 +99,7 @@ const app = Vue.createApp({
         },
         async getDataFromDatabase() {
             try {
-            const url = 'https://lysoglivdatarest.azurewebsites.net/api/LightSensor';
+            const url = 'https://lysoglivrest.azurewebsites.net/api/LightSensor';
 
             const response = await axios.get(url);
                     this.sensorData = response.data;
@@ -170,7 +170,7 @@ const app = Vue.createApp({
             console.log("Sun button clicked - Open blinds");
 
             try {
-                const url = 'https://lysoglivdatarest.azurewebsites.net/api/LightSensor';
+                const url = 'https://lysoglivrest.azurewebsites.net/api/LightSensor';
 
                 // Build payload the API expects. Adjust fields to match your REST service.
                 const payload = {

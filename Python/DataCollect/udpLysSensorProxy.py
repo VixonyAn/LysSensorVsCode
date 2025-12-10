@@ -16,7 +16,7 @@ print("Proxy UDP ready")
 print(f"Listening for incoming messages on PORT {PORT}")
 
 ## REST_API_URL = "https://localhost:7169/api/PiData" ## localhost url
-REST_API_URL = "https://lysoglivdatarest.azurewebsites.net/api/PiData" ## Deployed on Azure
+REST_API_URL = "https://lysoglivrest.azurewebsites.net/api/PiData" ## Deployed on Azure
 
 while True:
     msg, addr = socket_reciever.recvfrom(3000)
