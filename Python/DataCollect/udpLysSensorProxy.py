@@ -18,13 +18,41 @@ print(f"Listening for incoming messages on PORT {PORT}")
 ## REST_API_URL = "https://localhost:7169/api/PiData" ## localhost url
 REST_API_URL = "https://lysoglivrest.azurewebsites.net/api/PiData" ## Deployed on Azure
 
+PI_DATA = {
+    "LightValue" : 0
+}
+
+def request_post():
+    response = requests.post(REST_API_URL, json=msg_obj, verify=False, timeout=5)
+    return response, response.status_code
+
+def get_data(response):
+    print(f"Get request successful - {response.status_code}")
+    data = response.json()
+    return data
+
+def request_delete(id):
+    response = requests.delete(f"{REST_API_URL}/{id}")
+    if response.status_code == 200:
+        print(f"Delete successful - {response.status_code}")
+    elif response.status_code == 404:
+        print(f"Delete failed - {response.status_code}")
+
+
 while True:
+    response_get = requests.get(f"{REST_API_URL}" + "/" + f"{True}", json=PI_DATA)
+    if response_get.status_code == 200:
+        pi_data = get_data(response_get)
+        if len(pi_data) > 10:
+            for i in range(len(pi_data) - 1):
+                request_delete(pi_data[i]["id"])
     msg, addr = socket_reciever.recvfrom(3000)
     msg_str = msg.decode()
     print(f"UDP Broadcaster {addr} sent the following message: {msg_str}")
     msg_obj = json.loads(msg_str)
     try:
-        response = requests.post(REST_API_URL, json=msg_obj, verify=False, timeout=5)
-        print(f"Response from REST API: {response.status_code} -- {response.text}")
+        response, status = request_post()
+        if status == 201:
+            print(f"Response from REST API: {status} -- {response.text}")
     except requests.exceptions.RequestException as error:
         print(f"Error occured when posting to REST API: {error}")
