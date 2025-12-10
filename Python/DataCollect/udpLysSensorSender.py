@@ -22,6 +22,6 @@ for _ in range(100):
     message = json.dumps(light_dict)
     print(f'Broadcaster sending: {message}')
     socket_sender.sendto(message.encode(), (BROADCAST_IP, PORT))
-    time.sleep(600)
+    time.sleep(120)
     
 socket_sender.close()
