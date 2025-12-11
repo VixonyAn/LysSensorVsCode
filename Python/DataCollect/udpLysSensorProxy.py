@@ -8,7 +8,6 @@ import urllib3
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 PORT = 32000
-
 socket_reciever = socket(AF_INET, SOCK_DGRAM)
 socket_reciever.bind(('', PORT))
 
@@ -22,22 +21,17 @@ PI_DATA = {
     "LightValue" : 0
 }
 
-def request_post():
-    response = requests.post(REST_API_URL, json=msg_obj, verify=False, timeout=5)
-    return response, response.status_code
-
 def get_data(response):
-    print(f"Get request successful - {response.status_code}")
+    ## print(f"Get Request Successful - {response.status_code}")
     data = response.json()
     return data
 
 def request_delete(id):
     response = requests.delete(f"{REST_API_URL}/{id}")
     if response.status_code == 200:
-        print(f"Delete successful - {response.status_code}")
+        print(f"Delete Successful - {response.status_code}: Row {id} Removed")
     elif response.status_code == 404:
-        print(f"Delete failed - {response.status_code}")
-
+        print(f"Delete Failed - {response.status_code}")
 
 while True:
     response_get = requests.get(f"{REST_API_URL}" + "/" + f"{True}", json=PI_DATA)
@@ -51,8 +45,7 @@ while True:
     print(f"UDP Broadcaster {addr} sent the following message: {msg_str}")
     msg_obj = json.loads(msg_str)
     try:
-        response, status = request_post()
-        if status == 201:
-            print(f"Response from REST API: {status} -- {response.text}")
+        response = requests.post(REST_API_URL, json=msg_obj, verify=False, timeout=5)
+        print(f"Response from REST API: {response.status_code} -- {response.text}")
     except requests.exceptions.RequestException as error:
         print(f"Error occured when posting to REST API: {error}")

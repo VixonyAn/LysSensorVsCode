@@ -30,9 +30,7 @@ def determineLightLevel(hour):
         return random.randint(107, 1075)
     elif hour >= 19 and hour < 20:
         return random.uniform(10.8, 107)
-    elif hour >= 20 and hour < 21:
-        return random.uniform(1.08, 10.8)
-    elif hour >= 21 and hour < 22:
+    elif hour >= 20 and hour < 22:
         return random.uniform(1.08, 10.8)
     elif hour >= 22 and hour < 23:
         return random.uniform(0.0108, 0.108)
